@@ -9,6 +9,7 @@ class TestCardGame(unittest.TestCase):
         self.card2 = Card("Hearts", 5)
         self.card3 = Card("Clubs", 7)
         self.card4 = Card("Diamonds", 4)
+        self.cards = [self.card1, self.card2, self.card3, self.card4]
 
     def test_check_for_ace(self):
         self.assertTrue(self.game.check_for_ace(self.card1))
@@ -19,6 +20,5 @@ class TestCardGame(unittest.TestCase):
         self.assertEqual(highest, self.card3)
 
     def test_cards_total(self):
-        cards = [self.card1, self.card2, self.card3, self.card4]
-        total = self.game.cards_total(cards)
+        total = self.game.cards_total(self.cards)
         self.assertEqual(total, "You have a total of 17")
